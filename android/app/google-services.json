@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "285160049757",
+    "project_id": "ekyatra-51915",
+    "storage_bucket": "ekyatra-51915.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285160049757:android:dd439cc86160f6d3f051b4",
+        "android_client_info": {
+          "package_name": "com.abtypapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "285160049757-0ppcd0u2eudngnppg98igk3bfobpa7nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwEplhxWMbZFXK5bZowSX07XmQiemoKu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "285160049757-0ppcd0u2eudngnppg98igk3bfobpa7nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

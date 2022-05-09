@@ -1,0 +1,6 @@
+module Pods_ABTYPApp {
+  umbrella header "Pods-ABTYPApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

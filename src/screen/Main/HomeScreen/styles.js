@@ -1,0 +1,61 @@
+import {StyleSheet } from 'react-native';
+import colors from '../../../component/colors';
+export default StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:'white'
+    },
+    second:{
+        padding:10,
+        flex:1,
+        alignItems:'center',
+    justifyContent:'center'
+    },
+    main:{
+        width:'100%',
+        backgroundColor:colors.red,
+        height:45,
+        alignItems:'center',
+        justifyContent:'space-between',
+        paddingHorizontal:10,
+        flexDirection:'row'
+    },
+    image:{
+        width:30,
+        height:30,
+        tintColor:'white'
+    },
+    home:{
+        color:'white',
+        fontSize:17,
+        fontFamily:'Poppins-Bold'
+    },
+    card:{
+        width:'60%',
+        height:45,
+        backgroundColor:colors.red,
+     
+        flexDirection:'row',
+        alignItems:'center',
+        paddingHorizontal:15
+    },
+    text:{
+        color:'white',
+        fontFamily:'Poppins-SemiBold',
+        fontSize:16
+    },
+    icon:{
+        width:25,
+        height:25,
+        tintColor:colors.white,
+        marginRight:10
+    },
+    imageCont:{
+        alignItems:'center',
+        marginTop:0
+    },
+    logo:{
+        width:180,
+        height:180
+    }
+})

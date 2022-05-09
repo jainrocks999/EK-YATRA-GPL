@@ -1,0 +1,6 @@
+module Pods_ABTYPApp_ABTYPAppTests {
+  umbrella header "Pods-ABTYPApp-ABTYPAppTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
