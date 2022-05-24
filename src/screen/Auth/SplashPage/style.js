@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import colors from "../../../component/colors";
+import colors from '../../../component/colors';
 export default StyleSheet.create({
     container:{
         flex:1,
@@ -35,6 +35,7 @@ export default StyleSheet.create({
         alignSelf: 'center',
         fontFamily: 'Poppins-Bold',
         fontWeight: 'bold',
+        //padding: 16,
         textAlign: 'center',
       },
       ModelMsgText: {

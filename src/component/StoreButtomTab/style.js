@@ -5,10 +5,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 20,
     backgroundColor:colors.red,
+   // backgroundColor: colors.pinckColor,
     alignItems: 'center',
     justifyContent: 'space-between',
     opacity: 10,
-    paddingVertical:5,
+    paddingVertical:6,
   },
 
   itemSeperator: {
@@ -33,7 +34,7 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   text:{
-    fontSize: 12,
+    fontSize: 10,
     color:'white',
     fontFamily:'Poppins-SemiBold',
     marginTop:2

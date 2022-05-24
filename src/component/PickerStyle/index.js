@@ -11,7 +11,7 @@ export default pickerSelectStyles = StyleSheet.create({
         borderColor: 'gray',
         borderRadius: 10,
         color: 'black',
-        paddingRight: 30, 
+        paddingRight: 30, // to ensure the text is never behind the icon
     },
     inputAndroid: {
         fontSize: 16,
@@ -21,6 +21,6 @@ export default pickerSelectStyles = StyleSheet.create({
         borderColor: 'purple',
         borderRadius: 10,
         color: 'black',
-        paddingRight: 30, 
+        paddingRight: 30, // to ensure the text is never behind the icon
     },
 });

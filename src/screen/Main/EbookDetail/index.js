@@ -8,19 +8,20 @@ import { useNavigation } from '@react-navigation/native';
 import RNFetchBlob from "rn-fetch-blob";
 const EbookDetail = ({route}) => {
           const data1=route.params
+          console.log('this is route.params',route.params);
           const navigation=useNavigation('')
           const [page,setPage]=useState('')
           const [total,setTotal]=useState('')
           const [value,setValue]=useState(pageNo)
           const [pageNo,setPageNo]=useState(1)
-          const source = Platform.OS === 'android' ? { uri: "bundle-assets://pdf/terapanth_ka_itihaas.pdf" } : { uri: "bundle-assets://terapanth_ka_itihaas_part_1.pdf" }
+          const source = Platform.OS === 'android' ? { uri: route.params.pdf } : { uri: "bundle-assets://terapanth_ka_itihaas_part_1.pdf" }
          const actualDownload = () => {
           const { dirs } = RNFetchBlob.fs;
           const configOptions = Platform.select({
               ios: {
                   fileCache:true,
-              title: `QnA set 1.pdf`,
-                  path: `${dirs.DocumentDir}/QnA set 1.pdf`,
+                  title: `terapanth_ka_itihaas.pdf`,
+                  path: `${dirs.DocumentDir}/terapanth_ka_itihaas.pdf`,
                   appendExt: 'pdf',
               },
               android: {
@@ -29,19 +30,19 @@ const EbookDetail = ({route}) => {
                 useDownloadManager: true,
                 notification: true,
                 mediaScannable: true,
-                  title: `QnA set 1.pdf`,
-                path: `${dirs.DownloadDir}/QnA set 1.pdf`,
+                title: `${route.params.title}.pdf`,
+                path: `${dirs.DownloadDir}/${route.params.title}.pdf`,
                 },
               },
           });
       
           RNFetchBlob.config(configOptions)
-              .fetch('GET', `https:\/\/ekyatraterapanth.com\/adminpanel\/assets\/doc\/terapanth_ka_itihaas_part_1.pdf`, {})
+              .fetch('GET', route.params.pdf, {})
               .then((res) => {
                
               })
               .catch((e) => {
-                 
+                  console.log('The file saved to ERROR', e.message)
               });
       }
          
@@ -87,18 +88,18 @@ const EbookDetail = ({route}) => {
                     color: 'white',
                     fontSize: 16,
                     fontFamily: 'Poppins-SemiBold',
-                  }}>{'QnA set 1'}</Text>
+                  }}>{route.params.title}</Text>
                 </View>
-               <TouchableOpacity onPress={()=>downloadFile()}>
+              {Platform.OS=='android'?<TouchableOpacity onPress={()=>downloadFile()}>
                 <Image source={require('../../../assets/Images/download.png')}/>
-                </TouchableOpacity>
+                </TouchableOpacity>:<View/>}
               </View>
               <View style={styles.second}>
                 <View style={styles.main1}>
                   <Pdf
                     source={source}
                     onLoadComplete={(numberOfPages, filePath) => {
-                    
+                      console.log(`number of pages: ${numberOfPages}`);
                     }}
                     onPageChanged={(page,numberOfPages) => {
                      setPage(page)
@@ -106,7 +107,7 @@ const EbookDetail = ({route}) => {
                      setTotal(numberOfPages)
                     }}
                     onError={(error) => {
-                     
+                      console.log(error);
                     }}
                     style={styles.pdf}
                     enablePaging={true}

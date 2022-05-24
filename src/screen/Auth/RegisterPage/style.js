@@ -61,6 +61,7 @@ export default StyleSheet.create({
     logo:{
         width:180,
         height:180
-    }
+    },
+    img:{height: 12, width: 12, marginLeft: 2}
    
 })

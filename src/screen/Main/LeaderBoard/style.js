@@ -8,6 +8,7 @@ export default StyleSheet.create({
         backgroundColor:'white'
     },
     second:{
+     // height:'100%'
     },
     main:{
         width:'100%',

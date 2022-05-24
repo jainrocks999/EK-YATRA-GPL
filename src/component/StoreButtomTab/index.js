@@ -100,7 +100,7 @@ const BottomTab = (mobile) => {
       <TouchableOpacity
         style={styles.bottomTabContainer}
         onPress={() => call()}
-      
+      // onPress={()=>navigation.navigate('HowTo')}
       >
         {renderImageReport()}
       </TouchableOpacity>

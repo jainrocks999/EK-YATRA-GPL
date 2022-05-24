@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>285160049757-b9ro4ms1omi017cnlv1ul2685i3btvo2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.285160049757-b9ro4ms1omi017cnlv1ul2685i3btvo2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB9MTWbXh8riFyfILMnC6hVU6LAMO9jA_k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>285160049757</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.atto.gpl</string>
+	<key>PROJECT_ID</key>
+	<string>ekyatra-51915</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ekyatra-51915.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:285160049757:ios:70224cec5fade367f051b4</string>
+</dict>
+</plist>

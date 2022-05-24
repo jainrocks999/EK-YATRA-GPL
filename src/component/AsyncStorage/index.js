@@ -3,6 +3,13 @@ export default {
     email:'email',
     mobile:'mobile',
     name:'name',
+    last_name:'last_name',
+    pincode:'pincode',
+    area:'area',
+    address:'address',
+    gender:'gender',
+    dob:'dob',
+    
     roundname:'roundname',
     commonQuizId:'commonQuizId',
     Token:'Token',

@@ -14,56 +14,37 @@ import Loader from '../../../component/loader';
 import Lang from '../../../component/language';
 import RNPickerSelect from 'react-native-picker-select';
 import colors from '../../../component/colors';
+import DatePicker from 'react-native-datepicker';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+const data = [
+  {label: 'Male', value: 'Male'},
+  {label: 'Female', value: 'Female'},
+  {label: 'Others', value: 'Others'},
+];
 
-const data1=[
-{ label: 'Andhra Pradesh', value: 'Andhra Pradesh'},
-{ label: 'Arunachal Pradesh', value: 'Arunachal Pradesh' },
-{ label: 'Assam', value: 'Assam'},
-{ label:'Bihar',value:'Bihar'},
-{ label:'Chhattisgarh',value:'Chhattisgarh'},
-{ label: 'Goa', value: 'Goa'},
-{ label: 'Gujarat', value: 'Gujarat'},
-{ label: 'Haryana', value: 'Haryana'},
-{ label: 'Himachal Pradesh', value: 'Himachal Pradesh'},
-{ label: 'Jharkhand', value: 'Jharkhand'},
-{ label: 'Karnataka', value: 'Karnataka'},
-{ label: 'Kerala', value: 'Kerala'},
-{ label: 'Madhya Pradesh', value: 'Madhya Pradesh'},
-{ label: 'Maharashtra', value: 'Maharashtra'},
-{ label: 'Manipur', value: 'Manipur'},
-{ label: 'Meghalaya', value: 'Meghalaya'},
-{ label: 'Mizoram', value: 'Mizoram'},
-{ label: 'Nagaland', value: 'Nagaland'},
-{ label: 'Odisha', value: 'Odisha'},
-{ label: 'Punjab', value: 'Punjab'},
-{ label: 'Rajasthan', value: 'Rajasthan'},
-{ label: 'Sikkim', value: 'Sikkim'},
-{ label: 'Tamil Nadu', value: 'Tamil Nadu'},
-{ label: 'Telangana', value: 'Telangana'},
-{ label: 'Tripura', value: 'Tripura'},
-{ label: 'Uttar Pradesh', value: 'Utter Pradesh'},
-{ label: 'Uttarakhand', value: 'Uttarakhand'},
-{ label: 'West Bengal', value: 'Best Bengal'},
-]
-const RegisterPage=(props)=>{
+const RegisterPage=({route})=>{
     const navigation=useNavigation()
     const dispatch=useDispatch()
+    const selector =useSelector(state=>state.Area)
     const isFetching=useSelector((state)=>state.isFetching)
-    const [first_name,setFirstName]=useState('')
-    const [last_name,setLastName]=useState('')
-    const [address,setAddress]=useState('')
-    const [area,setArea]=useState('')
-    const [city,setCity]=useState('')
-    const [state,setState]=useState('')
-    const [pincode,setPincode]=useState('')
-    const [number,setNumber]=useState('')
-
+    const [first_name,setFirstName]=useState(route.params.name)
+    const [last_name,setLastName]=useState(route.params.last_name)
+    const [address,setAddress]=useState(route.params.address)
+    const [area,setArea]=useState(route.params.area)
+    const [pincode,setPincode]=useState(route.params.pincode)
+    const [number,setNumber]=useState()
+    const [email_id, setEmail] = useState(route.params.email);
+    const [mobile, setMobile] = useState(route.params.mobile);
+    const [gender, setGender] = useState(route.params.gender);
+    const [text, setText] = useState(route.params.dob);
+    console.log("texxxxtttt",text);
    useEffect(async()=>{
    let number=await AsyncStorage.getItem(Storage.mobile)
    setNumber(number)
    })
     const userRegister=async()=>{
     let userid=await AsyncStorage.getItem(Storage.userid)
+    console.log('this is');
     if(first_name==''){
       Toast.show('Please Enter First Name')
     }
@@ -76,35 +57,40 @@ const RegisterPage=(props)=>{
     else if(address==''){
         Toast.show('Please Enter Address')
     }
-    else if(city==''){
-        Toast.show('Please Enter City Name')
+    else if(gender==''){
+        Toast.show('Please Select Gender')
     }
-    else if(state==''){
-        Toast.show('Please Select State Name')
-    }
+   
     else if(pincode==''){
         Toast.show('Please Enter Pincode Number')
     }
     else{
+      console.log('thisaaa  ddfff');
         dispatch({
             type: 'Update_Profile_Request',
             url: 'profileupdate',
             userid,
             first_name,
-            last_name,
-            address,
-            area,
-            city,
-            state,
-            pincode,
+        last_name,
+        mobile,
+        email_id,
+        dob: text,
+        gender,
+        address,
+        area,
+        pincode,
+        navigation
           })
-          setFirstName('')
-          setLastName('')
-          setAddress('')
-          setArea('')
-          setCity('')
-          setState('')
-          setPincode('')
+          console.log('faagagadgadg');
+          setFirstName('');
+          setLastName('');
+          setMobile('');
+          setEmail('');
+          setText('');
+          setGender('');
+          setAddress('');
+          setArea('');
+          setPincode('');
       }
 }
 
@@ -121,10 +107,16 @@ const RegisterPage=(props)=>{
         </View>
          </View>
            <View style={styles.container}>
-           <ScrollView style={{flex:1}}>
+           <ScrollView style={{}}>
+           <KeyboardAwareScrollView
+          contentContainerStyle={{flex:1}}
+          enableOnAndroid={true}
+          keyboardShouldPersistTaps='handled'
+          extraScrollHeight={30}
+          >
            <View style={styles.imageCont}>
                <Image style={styles.logo} 
-               source={require('../../../assets/Images/logo.png')}/>
+               source={require('../../../assets/Images/GPL.png')}/>
            </View>
             <View style={styles.second}>
             <View style={styles.view}>
@@ -145,16 +137,79 @@ const RegisterPage=(props)=>{
             maxLength={40}
             value={last_name}
             />
-            <View></View>
+             <View style={styles.view1}>
+              <Text style={{fontFamily: 'Poppins-Medium'}}>{Lang.email}</Text>
+            </View>
+            <TextInput
+
+              placeholder="Enter Email"
+              onChangeText={text => setEmail(text)}
+              maxLength={40}
+              editable={false}
+              value={email_id}
+            />
+            <View style={styles.view1}>
+              <Text style={{fontFamily: 'Poppins-Medium'}}>
+                {Lang.MobileNumber}
+              </Text>
+           
+            </View>
+            <TextInput
+              placeholder="Enter Mobile Number"
+              onChangeText={text => setMobile(text)}
+              keyboardType="phone-pad"
+              maxLength={11}
+              editable={false}
+              value={mobile}
+            />
+             <View style={styles.view1}>
+              <Text style={{fontFamily: 'Poppins-Medium'}}>{Lang.Gender}</Text>
+            </View>
+            <View style={styles.drop}>
+              <RNPickerSelect
+                onValueChange={value => setGender(value)}
+                items={data}
+                style={{inputAndroid: {color: 'black'}}}
+                value={gender}
+                useNativeAndroidPickerStyle={false}
+                placeholder={{
+                  label: 'Select Gender',
+                  value: null,
+                  color: 'black',
+                }}
+              />
+            </View>
+            <View style={styles.view1}>
+              <Text style={{fontFamily: 'Poppins-Medium'}}>
+                {Lang.DateOfBirth}
+              </Text>
+            </View>
+           
+               <TextInput
+            placeholder=''
+            onChangeText={(text)=>setText(text)}
+            maxLength={100}
+            editable={false}
+            value={text}
+            />
+
             <View style={styles.view1}>
             <Text style={{fontFamily:'Poppins-Medium'}}>{Lang.area}</Text>
             </View>
-            <TextInput
-            placeholder='Enter Area'
-            onChangeText={(text)=>setArea(text)}
-            maxLength={50}
-            value={area}
-            />
+            <View style={styles.drop}>
+            <RNPickerSelect
+                onValueChange={value => setArea(value)}
+                items={selector}
+                style={{inputAndroid: {color: 'black'}}}
+                value={area}
+                useNativeAndroidPickerStyle={false}
+                placeholder={{
+                  label: 'Select Area',
+                  value: null,
+                  color: 'black',
+                }}
+              />
+              </View>
             <View style={styles.view1}>
             <Text style={{fontFamily:'Poppins-Medium'}}>{Lang.Address}</Text>
             </View>
@@ -164,28 +219,7 @@ const RegisterPage=(props)=>{
             maxLength={100}
             value={address}
             />
-            <View style={styles.view1}>
-            <Text style={{fontFamily:'Poppins-Medium'}}>{Lang.City}</Text>
-            </View>
-            <TextInput
-            placeholder='Enter City Name'
-            onChangeText={(text)=>setCity(text)}
-            maxLength={40}
-            value={city}
-            />
-            <View style={styles.view1}>
-            <Text style={{fontFamily:'Poppins-Medium'}}>{Lang.State}</Text>
-            </View>
-            <View style={styles.drop}>
-              <RNPickerSelect
-            onValueChange={(value) => setState(value)}
-            items={data1}
-            style={{ inputAndroid: { color: 'black' } }}
-            value={state}
-            useNativeAndroidPickerStyle={false}
-            placeholder={{ label: "Select State", value: null }}
-            />
-            </View>
+           
             <View style={styles.view1}>
             <Text style={{fontFamily:'Poppins-Medium'}}>{Lang.Pincode}</Text>
             </View>
@@ -203,6 +237,7 @@ const RegisterPage=(props)=>{
             /> 
             </View>
             </View>
+            </KeyboardAwareScrollView>
             </ScrollView>
             </View>
             <BottomTab

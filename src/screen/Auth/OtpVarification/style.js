@@ -93,4 +93,29 @@ export default StyleSheet.create({
         fontFamily:'Poppins-Medium',
         margin:6
     },
+    // borderStyleBase: {
+    //     width: 30,
+    //     height: 45
+    //   },
+    
+    //   borderStyleHighLighted: {
+    //     borderColor: "#03DAC6",
+    //   },
+    
+    //   underlineStyleBase: {
+    //     width: 40,
+    //     height: 40,
+    //     borderWidth: 2,
+    //     //borderBottomWidth: 1,
+    //     color:colors.pinckColor,
+    //     fontSize:18,
+    //     backgroundColor:'#fff',
+    //     borderColor:colors.pinckColor,
+    //     borderRadius:6
+    //   },
+    
+    //   underlineStyleHighLighted: {
+    //     borderColor: colors.pinckColor,
+    //     borderWidth:2
+    //   },
 })

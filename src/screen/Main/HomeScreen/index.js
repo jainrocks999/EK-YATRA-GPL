@@ -20,6 +20,7 @@ const Home=()=>{
   const dispatch=useDispatch()
   const [mobile,setMobile]=useState('')
   const selector=useSelector(state=>state.Sponsor)
+  console.log("this is working here  ,,,,,,,",selector);
   useEffect(async()=>{
     const user_id=await AsyncStorage.getItem(Storage.userid)
      mob=await AsyncStorage.getItem(Storage.mobile)
@@ -28,6 +29,10 @@ const Home=()=>{
         type: 'Winner_List_Request',
         url: 'daily_winner',
       })
+      dispatch({
+        type: 'Area_List_Request',
+        url: 'areas',
+      });
      
    },[])
     const call = async() => {
@@ -78,7 +83,7 @@ const Home=()=>{
             data={selector}
             height={170}
             timer={2000}
-           
+            // onPress={item => alert(JSON.stringify(item))}
             contentContainerStyle={{paddingHorizontal:15,}}
             indicatorContainerStyle={{position:'absolute', bottom: 10}}
             indicatorActiveColor={colors.red}
@@ -103,3 +108,41 @@ const Home=()=>{
 }
 export default Home;
 
+const images = [
+  {
+    image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+    desc:
+      'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+  },
+ {
+   image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+   desc:
+     'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+ },
+ {
+  image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+  desc:
+    'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+},
+{
+  image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+  desc:
+    'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+},
+{
+  image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+  desc:
+    'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+},
+{
+  image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+  desc:
+    'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+},
+{
+  image:'https://images.unsplash.com/photo-1455620611406-966ca6889d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1130&q=80',
+  desc:
+    'Red fort in India New Delhi is a magnificient masterpeiece of humans',
+},
+
+ ]

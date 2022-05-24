@@ -6,12 +6,12 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
-       
+        // alignSelf:'center'
     },
     second: {
-     
+       // padding: 10,
         width: '100%',
-       
+        //flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
     },

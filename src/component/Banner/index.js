@@ -17,14 +17,14 @@ const Preview = ({
   active,
   local,
 }) => {
- 
+ // console.log('hi............',item,imageKey);
   return (
       <View style={{alignItems:'center',justifyContent:'center',borderRadius:15}}>
     <TouchableOpacity >
       <View style={styles.imageContainer}>
         <Image
-          style={{height:140,borderRadius:5,width:Platform.OS=='android'?300:330}} 
-           resizeMode={Platform.OS=='android'?'center':'contain'}
+ style={{height:140,width:Platform.OS=='android'?300:330}} 
+          resizeMode={Platform.OS=='android'?'center':'contain'}
           source={{uri: item.logo_image}}
         />
       </View>
@@ -38,7 +38,8 @@ const styles = StyleSheet.create({
   imageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
- 
+    
+   // borderRadius:15
   },
   shadow: {
     ...Platform.select({

@@ -44,7 +44,7 @@ export default StyleSheet.create({
         color:'#FFF',
         
         fontSize:16,
-       
+        //letterSpacing:2,
         fontFamily:'Poppins-SemiBold'
      
     },
@@ -65,7 +65,7 @@ export default StyleSheet.create({
         marginTop:10
     },
     correct:{
-        color:colors.pinckColor,
+        color:colors.red,
         fontWeight:'bold',
         fontSize:20,
         letterSpacing:2

@@ -62,8 +62,8 @@ export default StyleSheet.create({
         fontFamily: 'Poppins-SemiBold'
     },
     logo:{
-        width:160,
-        height:120
+        width:180,
+        height:180
     }
    
 })

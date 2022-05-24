@@ -55,7 +55,7 @@ const Book = () => {
           style={styles.card1}>
              <View style={{flexDirection:'row',alignItems:'center'}}>
                <Image style={{height:50,width:50}} source={{uri:item.icon}}/>
-             <Text style={{marginLeft:20}}>{'QnA set 1'}</Text>
+             <Text style={{marginLeft:20}}>{item.title}</Text>
              </View>
           </TouchableOpacity>
         )}

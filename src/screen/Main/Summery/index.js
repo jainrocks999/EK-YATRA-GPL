@@ -52,7 +52,7 @@ const Summery = ({ route }) => {
         url: 'https://ekyatraterapanth.com/gpl/index.php/api/savetest',
       });
       if (response.data.status == true) {
-      
+        console.log("i anfkdjfsadlkfjsdlkfjasdklfjasdl",response.data)
         Toast.show(response.data.msg);
         dispatch({
           type: 'Attempt_Question_Request',
@@ -69,7 +69,7 @@ const Summery = ({ route }) => {
         AsyncStorage.setItem(Storage.attempArrat,'')
         AsyncStorage.setItem(Storage.taken_time,'')
       } else {
-       
+        // Toast.show(response.data.msg);
       }
     } catch (error) {
       throw error;
@@ -80,8 +80,8 @@ const Summery = ({ route }) => {
       await Share.share({
         message:
           `My total score for Quiz is ${data.correctCount} out of ${data.totalQuestion} Please play the quiz now 
-          ${'https://play.google.com/store/apps/details?id=com.abtypapp'}
-          ${'https://apps.apple.com/in/app/ek-yatra/id1578248971'}
+          ${'https://play.google.com/store/apps/details?id=com.atto.gpl'}
+          ${'https://play.google.com/store/apps/details?id=com.atto.gpl'}
            `
       });
   }
@@ -108,7 +108,7 @@ const Summery = ({ route }) => {
             <View style={{ width: '47%' }}>
               <AwesomeButton
                 backgroundDarker={'grey'}
-                backgroundColor={colors.pinckColor}
+                backgroundColor={colors.red}
                 borderRadius={15}
                 width={windowWidth * 3 / 7}
                 height={45}
@@ -130,7 +130,7 @@ const Summery = ({ route }) => {
             <View style={{ width: '47%' }}>
               <AwesomeButton
                 backgroundDarker={'grey'}
-                backgroundColor={colors.pinckColor}
+                backgroundColor={colors.red}
                 borderRadius={15}
                 width={windowWidth * 3 / 7}
                 height={45}

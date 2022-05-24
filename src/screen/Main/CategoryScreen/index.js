@@ -62,7 +62,7 @@ const Round = () => {
       return(
         <TouchableOpacity
         onPress={() => { checkIn(item) }}>
-        <View style={[styles.card, { backgroundColor: 'purple' }]}>
+        <View style={[styles.card, { backgroundColor: '#ed2225' }]}>
           <Text style={[styles.round, styles.round2]}>Play Quiz</Text>
         </View>
       </TouchableOpacity>

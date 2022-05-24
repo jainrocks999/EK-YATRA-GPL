@@ -23,6 +23,7 @@ const styles=StyleSheet.create({
     main:{
         width:'100%',
         backgroundColor:colors.red,
+       // backgroundColor:colors.pinckColor,
         height:45,
         alignItems:'center',
         justifyContent:'space-between',

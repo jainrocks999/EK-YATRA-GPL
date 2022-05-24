@@ -11,7 +11,8 @@ initialstate = {
   PlayedQuiz:[],
   otpResponse:[],
   notificationData:[],
-  Winner:[]
+  Winner:[],
+  Area:[],
 };
 export default (state = initialstate, action) => {
   switch (action.type) {
@@ -124,7 +125,15 @@ export default (state = initialstate, action) => {
     case 'Get_Notification_Success':
       return { ...state, isFetching: false,notificationData:action.payload};
     case 'Get_Notification_Error':
-      return { ...state, isFetching: false };
+   return { ...state, isFetching: false };
+
+   case 'Area_List_Request':
+    return { ...state, isFetching: true };
+   case 'Area_List_Success':
+    return { ...state, isFetching: false,Area:action.payload};
+    case 'Area_List_Error':
+    return { ...state, isFetching: false };
+
 
     default:
       return state;

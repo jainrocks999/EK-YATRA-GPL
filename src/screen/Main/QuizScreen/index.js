@@ -52,7 +52,7 @@ class Quiz extends React.Component {
   handleBackButtonClick() {
     if(this.state.index==0){
       this.props.navigation.goBack(null);
-      whoosh.stop();
+      // whoosh.stop();
     }else{
       Alert.alert(
         "Are you sure want to quit the quiz ?",
@@ -72,24 +72,24 @@ class Quiz extends React.Component {
     }
       return true;
          }
-   playBack=()=>{
-      whoosh = new Sound('https://ekyatraterapanth.com/adminpanel/assets/music/music.mp3',
-        Sound.MAIN_BUNDLE, (error) => {
-          if (error) {
-          
-            return;
-          }
-          whoosh.play((success) => {
-            if (success) {
-            
-              this.playBack()
-            } else {
-             
-            }
-          });
-        });
-        whoosh.release(); 
-   }
+  //  playBack=()=>{
+  //     whoosh = new Sound('https://ekyatraterapanth.com/adminpanel/assets/music/music.mp3',
+  //       Sound.MAIN_BUNDLE, (error) => {
+  //         if (error) {
+  //           console.log('failed to load the sound', error);
+  //           return;
+  //         }
+  //         whoosh.play((success) => {
+  //           if (success) {
+  //             console.log('successfully finished playing');
+  //             this.playBack()
+  //           } else {
+  //             console.log('playback failed due to audio decoding errors');
+  //           }
+  //         });
+  //       });
+  //       whoosh.release(); 
+  //  }
  async componentDidMount() {
   
     const { counter } = this.state
@@ -99,7 +99,7 @@ class Quiz extends React.Component {
 
     const commonQuizId=await AsyncStorage.getItem(Storage.commonQuizId)
     if(commonQuizId==null){
-      this.playBack()
+      // this.playBack()
     }
      else{
       let correctCount=await AsyncStorage.getItem(Storage.correctCount)
@@ -227,7 +227,7 @@ class Quiz extends React.Component {
   }
 
   alertFunction = () => {
-    whoosh.stop();
+   // whoosh.stop();
     const quizData = this.props.GetListById
     this.props.navigation.navigate('Summery', {
       correctCount: this.state.correctCount,
@@ -285,7 +285,7 @@ class Quiz extends React.Component {
         () => { setTimeout(() => this.next(), 500) }
       );
     } catch (error) {
-     
+      console.log(error);
     }
   };
 
@@ -583,7 +583,7 @@ class Quiz extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <View style={{ flex: 1 }}>
-          <View style={[styles.main, { backgroundColor: colors.pinckColor, }]}>
+          <View style={[styles.main, { backgroundColor: colors.red, }]}>
             <View style={{ alignItems:'center',justifyContent:'center',width:'100%' }}>
               <Text style={styles.title1}>Quiz</Text>
             </View>
@@ -608,7 +608,7 @@ class Quiz extends React.Component {
                     isPlaying
                     duration={this.state.counter}
                     colors={[
-                      ['#8f3d61', 1.0],
+                      ['#ed2225', 1.0],
 
                     ]}
                   >

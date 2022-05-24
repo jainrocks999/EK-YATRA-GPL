@@ -7,6 +7,9 @@ import {
   Platform,
   StyleSheet,
 } from 'react-native';
+
+
+//Main loader component
 export default class Loading extends React.Component {
   render() {
     return (

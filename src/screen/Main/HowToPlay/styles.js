@@ -30,7 +30,7 @@ export default StyleSheet.create({
         fontWeight:'700'
     },
     main1:{
-     
+       // alignItems:'center',
         flex:1
     },
     header:{

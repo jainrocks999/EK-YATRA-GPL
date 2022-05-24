@@ -30,7 +30,7 @@ export default StyleSheet.create({
       },
       button:{
         marginTop:40,
-        backgroundColor:'#42cef5',
+        backgroundColor:colors.red,
         paddingVertical:13,
         paddingHorizontal:25,
         borderRadius:10,
@@ -70,7 +70,7 @@ export default StyleSheet.create({
         fontFamily:'Poppins-Bold'
     },
     button1:{
-      backgroundColor:'#02e7f7',
+      backgroundColor:colors.red,
       width:'100%',
       height:45,
       borderRadius:10,
@@ -79,7 +79,7 @@ export default StyleSheet.create({
       marginVertical:6,
     },
     main1:{
-      backgroundColor:colors.pinckColor,
+      backgroundColor:colors.red,
       paddingHorizontal:10,
       paddingVertical:4,
       justifyContent:'center',

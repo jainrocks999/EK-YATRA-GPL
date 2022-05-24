@@ -17,14 +17,14 @@ const Preview = ({
   active,
   local,
 }) => {
- 
+  console.log('namee............',item,imageKey);
   return (
       
      <View style={{flex:1}}>
        <View style={[styles.card]}>
           <View style={{alignItems:'center',justifyContent:'center'}}>
             <View style={{width:'100%'}}>
-           <Image  style={{width:'100%',height:200}}
+           <Image  style={{width:'100%',height:300}}
            // resizeMode="cover" 
             source={{uri:item.winner_image}}/>
            </View>
@@ -57,7 +57,10 @@ const styles = StyleSheet.create({
         borderColor:'#ddc393',
         backgroundColor:'white',
          marginTop:10,
-       
+        // padding:10,
+        // marginHorizontal:10,
+        // marginBottom:10,
+       // flex:1,
         width:Platform.OS=='android'?330:360,
         height:450,
         
@@ -67,11 +70,13 @@ const styles = StyleSheet.create({
         fontFamily:'Poppins-SemiBold',
         color:'#000',
         paddingHorizontal:10,
-      
+        //fontSize:16,
     },
   imageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    
+   // borderRadius:15
   },
   shadow: {
     ...Platform.select({

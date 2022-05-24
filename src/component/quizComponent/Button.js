@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     width: "86%",
     marginTop: 10,
     borderWidth:1,
-    borderColor:colors.pinckColor
+    borderColor:colors.red
   },
   text: {
     color: "#fff",
@@ -22,6 +22,8 @@ const styles = StyleSheet.create({
     color:'#000'
   },
   buttonContainer: {
+    //flexDirection: "row",
+   // flexWrap: "wrap",
     marginTop: 20,
     justifyContent: "space-between",
     alignItems:'center',

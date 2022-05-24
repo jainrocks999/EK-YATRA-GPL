@@ -12,12 +12,18 @@ import LoginPage from "../../screen/Auth/LoginPage";
 import EbookDetail from '../../screen/Main/EbookDetail';
 
 const Drawer = createDrawerNavigator();
-function MyDrawer({name,email,mobile}) {
+function MyDrawer({name,email,mobile,pincode,dob,gender,address,area,last_name}) {
   return (
     <Drawer.Navigator drawerContent={() => <DrawerContent 
       name={name}
       email={email}
       mobile={mobile}
+      last_name={last_name}
+      pincode={pincode}
+      gender={gender}
+      dob={dob}
+      address={address}
+      area={area}
     />}>
         <Drawer.Screen name="Home" component={HomeScreen} />
        <Drawer.Screen name="About" component={AboutABTYP} />

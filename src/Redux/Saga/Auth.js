@@ -12,7 +12,10 @@ function* doLogin(action) {
     data.append('mobile', action.mobile)
     data.append('device_token', action.device_token)
     data.append('device_type', action.device_type)
+    
     const response = yield call(Api.fetchDataByPOST, action.url, data);
+
+ 
     if (response.status == true) {
       yield put({
         type: 'User_Login_Success',
@@ -24,9 +27,16 @@ function* doLogin(action) {
         mobile:response.user.phone,
         email:response.user.email,
         userid:response.user.userid,
+        last_name:response.user.last_name,
+        gender:response.user.gender,
+        address:response.user.address,
+        dob:response.user.dob,
+        pincode:response.user.pincode,
+        area:response.user.area,
         otp:response.user.otp,
         value:true
        })
+
     } else {
       // Toast.show(response.msg);
       Alert.alert(response.msg)
@@ -325,6 +335,7 @@ function* AttemptQuestion(action) {
 
 //UpdateProfile
 function* UpdateProfile(action) {
+  console.log('hi...........ff.......');
   try {
     const data = new FormData();
     data.append('userid',action.userid)
@@ -332,11 +343,13 @@ function* UpdateProfile(action) {
     data.append('last_name', action.last_name);
     data.append('address', action.address);
     data.append('area', action.area);
-    data.append('city', action.city)
-    data.append('state', action.state);
-    data.append('pincode', action.pincode)
-   
+   data.append('gender',action.gender);
+   data.append('mobile',action.mobile);
+   data.append('email_id',action.email_id);
+    data.append('pincode', action.pincode);
+   data.append('dob',action.dob);
     const response = yield call(Api.fetchDataByPOST, action.url, data);
+    console.log(',,,,,,,,,,,dddd,d,d,,',response);
     if (response.status == true) {
       Toast.show(response.msg);
       yield put({
@@ -347,6 +360,14 @@ function* UpdateProfile(action) {
       AsyncStorage.setItem(Storage.email, response.user.email)
       AsyncStorage.setItem(Storage.mobile, response.user.phone)
       AsyncStorage.setItem(Storage.name, response.user.first_name)
+      AsyncStorage.setItem(Storage.last_name,response.user.last_name)
+      AsyncStorage.setItem(Storage.address,response.user.address)
+      AsyncStorage.setItem(Storage.pincode,response.user.pincode)
+      AsyncStorage.setItem(Storage.gender,response.user.gender)
+      AsyncStorage.setItem(Storage.dob,response.user.dob)
+      AsyncStorage.setItem(Storage.area,response.user.area)
+     action.navigation.navigate('Home')
+
     } else {
       Toast.show(response.msg);
       yield put({
@@ -368,7 +389,7 @@ function* getNotification(action) {
     const data = new FormData();
     data.append('user_id', action.user_id)
     const response = yield call(Api.fetchDataByPOST, action.url, data);
-    if (response.stat=true) {
+    if (response.status=true) {
       yield put({
         type: 'Get_Notification_Success',
         payload: response.data,
@@ -389,7 +410,7 @@ function* getNotification(action) {
 function* getWinner(action) {
   try {
     const response = yield call(Api.fetchDataByGET, action.url);
-    if (response.stat=true) {
+    if (response.status=true) {
       yield put({
         type: 'Winner_List_Success',
         payload: response.data,
@@ -407,6 +428,26 @@ function* getWinner(action) {
   }
 }
 
+function* getArea(action) {
+  try {
+    const response = yield call(Api.fetchDataByGET, action.url);
+    if (response.status=true) {
+      yield put({
+        type: 'Area_List_Success',
+        payload: response.data,
+      });
+    } else {
+      yield put({
+        type: 'Area_List_Error',
+      });
+    }
+  }
+  catch (error) {
+     yield put({
+        type: 'Area_List_Error',
+      });
+  }
+}
 
 export default function* authSaga() {
   yield takeEvery('User_Login_Request', doLogin);
@@ -423,5 +464,6 @@ export default function* authSaga() {
   yield takeEvery('Update_Profile_Request',UpdateProfile)
   yield takeEvery('Get_Notification_Request',getNotification)
   yield takeEvery('Winner_List_Request',getWinner)
+  yield takeEvery('Area_List_Request',getArea)
 
 }

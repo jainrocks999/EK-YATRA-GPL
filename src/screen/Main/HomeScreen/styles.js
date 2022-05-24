@@ -1,4 +1,4 @@
-import {StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from '../../../component/colors';
 export default StyleSheet.create({
     container:{
@@ -34,7 +34,7 @@ export default StyleSheet.create({
         width:'60%',
         height:45,
         backgroundColor:colors.red,
-     
+       // backgroundColor:colors.pinckColor,
         flexDirection:'row',
         alignItems:'center',
         paddingHorizontal:15

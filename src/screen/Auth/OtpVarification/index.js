@@ -33,6 +33,13 @@ const OtpVarification=({route})=>{
           AsyncStorage.setItem(Storage.email, data.email)
           AsyncStorage.setItem(Storage.mobile, data.mobile)
           AsyncStorage.setItem(Storage.name, data.name)
+          AsyncStorage.setItem(Storage.last_name,data.last_name)
+          AsyncStorage.setItem(Storage.area,data.area)
+          AsyncStorage.setItem(Storage.address,data.address)
+          AsyncStorage.setItem(Storage.pincode,data.pincode)
+          AsyncStorage.setItem(Storage.gender,data.gender)
+          AsyncStorage.setItem(Storage.dob,data.dob)
+          
           navigation.navigate('Home')
         
         }
@@ -56,7 +63,9 @@ const OtpVarification=({route})=>{
               gender:data.gender,
               address:data.address,
               area:data.area,
+              // city:data.city,
               password:data.password,
+              // state:data.state,
               otp:data.otp,
               pincode:data.pincode,
               device_token:data.device_token,

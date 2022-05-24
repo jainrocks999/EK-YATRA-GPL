@@ -20,6 +20,7 @@ const CustomButton = (props) => {
       maxLength={props.maxLength}
       secureTextEntry={props.secureTextEntry}
       onChangeText={props.onChangeText}
+    
       onBlur={props.onBlur}
       value={props.value}
     />

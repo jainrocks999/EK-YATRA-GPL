@@ -6,7 +6,7 @@ import styles from './style';
 import axios from 'axios';
 import Modal from 'react-native-modal';
 import { useDispatch} from "react-redux";
-import colors from "../../../component/colors";
+import colors from '../../../component/colors';
 const Splash=()=>{
     const navigation=useNavigation()
     const [isModalVisible, setModalVisible] = useState(false);
@@ -36,16 +36,16 @@ const Splash=()=>{
               Accept: 'multipart/form-data',
             },
             url: 'https://ekyatraterapanth.com/gpl/index.php/api/version',
-          });
-       
+          });https://ekyatraterapanth.com/gpl/index.php/api/
+          console.log("aaaaaaaaaaaaaa",response.data);
           if (Platform.OS=='android') {
-            if (response.data.android_version > 12) {
+            if (response.data.android_version > 1) {
               setModalVisible(true)
              } else {
               initial();
              }
           } else {
-            if (response.data.ios_version > 3) {
+            if (response.data.ios_version > 1) {
               setModalVisible(true)
              } else {
                 initial();

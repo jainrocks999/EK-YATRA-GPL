@@ -17,7 +17,7 @@ import Storage from '../AsyncStorage';
 import { useSelector,useDispatch } from 'react-redux';
 
 
-const DrawerContent=({props,name,email,mobile})=> {
+const DrawerContent=({props,name,email,mobile,address,area,dob,pincode,gender,last_name})=> {
     const navigation = useNavigation();
     const dispatch=useDispatch()
     useEffect(() => {
@@ -25,9 +25,15 @@ const DrawerContent=({props,name,email,mobile})=> {
     }, []);
 
     const initial = async () => {
-         Email = await AsyncStorage.getItem(Storage.email);
-         Name = await AsyncStorage.getItem(Storage.name);
-         mobile=await AsyncStorage.getItem(Storage.mobile)
+        //  Email = await AsyncStorage.getItem(Storage.email);
+        //  Name = await AsyncStorage.getItem(Storage.name);
+        //  mobile=await AsyncStorage.getItem(Storage.mobile);
+        //  last_name=await AsyncStorage.getItem(Storage.last_name);
+        //  address =await AsyncStorage.getItem(Storage.address);
+        //  pincode=await AsyncStorage.getItem(Storage.pincode);
+        //  dob=await AsyncStorage.getItem(Storage.dob);
+        //  area=await AsyncStorage.getItem(Storage.area);
+        //  gender =await AsyncStorage.getItem(Storage.gender);
     }
     const getLogout=async()=>{
         const userid=await AsyncStorage.getItem(Storage.userid)
@@ -71,7 +77,7 @@ const DrawerContent=({props,name,email,mobile})=> {
                     <Text style={styles.title}>{lang.RegisterToProfileView}</Text>
                     </View>:
                     <TouchableOpacity
-                    onPress={()=>navigation.navigate('Profile')}
+                    onPress={()=>navigation.navigate('Profile',{name,email,mobile,address,area,dob,pincode,gender,last_name})}
                      style={styles.profile}>
                         <Title style={styles.title}>{name}</Title>
                         <Caption style={styles.caption}>{mobile}</Caption>
@@ -85,7 +91,7 @@ const DrawerContent=({props,name,email,mobile})=> {
                         navigation.navigate('Login')
                     }}>
                     <View style={[styles.drawer, {}]}>
-                        <View style={{ flexDirection: 'row' }}>
+                        <View style={{ flexDirection: 'row',justifyContent:'center',alignItems:'center'}}>
                             <View style={styles.iconView}>
                                 <Image style={styles.imageicon} source={require('../../assets/Images/login.jpg')}/>
                             </View>
@@ -111,13 +117,26 @@ const DrawerContent=({props,name,email,mobile})=> {
                 </TouchableOpacity>:
                 <View></View>
                 } 
+                {/* <TouchableOpacity
+                    onPress={() => {
+                        navigation.navigate('Leader')
+                    }}>
+                    <View style={[styles.drawer]}>
+                        <View style={{ flexDirection: 'row' }}>
+                        <View style={styles.iconView}>
+                                <Image style={styles.imageicon} source={require('../../assets/Images/leader.png')}/>
+                            </View>
+                            <Text style={styles.text}>{lang.LeaderBoard}</Text>
+                        </View>
+                    </View>
+                </TouchableOpacity> */}
                
                 <TouchableOpacity
                     onPress={() => {
                         navigation.navigate('Contact')
                     }}>
                     <View style={[styles.drawer]}>
-                        <View style={{ flexDirection: 'row' }}>
+                        <View style={{  flexDirection: 'row',justifyContent:'center',alignItems:'center' }}>
                         <View style={styles.iconView}>
                                 <Image style={styles.imageicon} source={require('../../assets/Images/call1.png')}/>
                             </View>
@@ -131,7 +150,7 @@ const DrawerContent=({props,name,email,mobile})=> {
                         navigation.navigate('Book')
                     }}>
                     <View style={[styles.drawer]}>
-                        <View style={{ flexDirection: 'row' }}>
+                        <View style={{  flexDirection: 'row',justifyContent:'center',alignItems:'center' }}>
                         <View style={styles.iconView}>
                                 <Image style={styles.imageicon} source={require('../../assets/Images/book.png')}/>
                             </View>
@@ -145,7 +164,7 @@ const DrawerContent=({props,name,email,mobile})=> {
                         navigation.navigate('HowTo')
                     }}>
                     <View style={[styles.drawer]}>
-                        <View style={{ flexDirection: 'row' }}>
+                        <View style={{ flexDirection: 'row',justifyContent:'center',alignItems:'center' }}>
                         <View style={styles.iconView}>
                                 <Image style={{ 
                                     tintColor: 'black',
@@ -163,7 +182,7 @@ const DrawerContent=({props,name,email,mobile})=> {
                         navigation.navigate('About')
                     }}>
                     <View style={[styles.drawer]}>
-                        <View style={{ flexDirection: 'row' }}>
+                        <View style={{  flexDirection: 'row',justifyContent:'center',alignItems:'center'}}>
                         <View style={styles.iconView}>
                                 <Image style={{ tintColor: 'black',
                                     height: 22,
@@ -181,7 +200,7 @@ const DrawerContent=({props,name,email,mobile})=> {
                     <TouchableOpacity 
                     onPress={()=>Logout()}
                     style={[styles.drawer]}>
-                        <View style={{ flexDirection: 'row' }}>
+                        <View style={{  flexDirection: 'row',justifyContent:'center',alignItems:'center' }}>
                         <View style={styles.iconView}>
                                 <Image style={styles.imageicon} source={require('../../assets/Images/logout.png')}/>
                             </View>
